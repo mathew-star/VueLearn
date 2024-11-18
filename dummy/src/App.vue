@@ -1,19 +1,29 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <h1 class="text-3xl font-bold underline text-blue-500">
+      Hello Tailwind CSS with Vue!
+    </h1>
+    <h2 :id="headingId">Welcome</h2>
+    <h2 :class="isPromoted && 'promoted' ">Promoted</h2>
+    <p :style="{
+      color:highlightcolor
+    }">Highlighted </p>
+    <button :disabled="isDisabled"> bind </button>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  data() {
+    return {
+      headingId: 'heading',
+      isDisabled:"false",
+      isPromoted:"true",
+      highlightcolor:"orange"
+    };
+  },
+};
 </script>
 
 <style>
@@ -24,5 +34,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.promoted{
+  font-style: italic;
 }
 </style>
